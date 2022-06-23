@@ -23,48 +23,7 @@
             padding: 20px
         }
 
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .hero-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("media/hero.jpg");
-            height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-
-        .hero-text {
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-        }
-
-        .hero-text button {
-            border: none;
-            outline: 0;
-            display: inline-block;
-            padding: 10px 25px;
-            color: black;
-            background-color: #ddd;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .hero-text button:hover {
-            background-color: #555;
-            color: white;
-        }
-
-        /* input[type=text] {
+        input[type=text] {
             display: block;
             width: 75%;
             padding: 12px 20px;
@@ -74,6 +33,7 @@
 
         .button {
             background-color: #4CAF50;
+            /* Green */
             border: none;
             border-radius: 4px;
             color: white;
@@ -91,9 +51,9 @@
             display: flex;
             flex-direction: column;
             text-align: center;
-            width: 75%;
+            width: 60%;
             font-size: 18px;
-        } */
+        }
     </style>
 </head>
 
@@ -145,7 +105,7 @@
             const foodList = document.getElementById("foodList");
 
             // Empty List
-            foodList.innerHTML = '';
+            foodList.innerHTML = '';            
 
             if (keywords) {
                 const food = getFood();
@@ -161,9 +121,6 @@
 
 
         }
-        function handleNavigation() {
-            window.location = 'search.html';
-        }
     </script>
     <!-- Sidebar (hidden by default) -->
     <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left"
@@ -171,15 +128,31 @@
         <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close Menu</a>
         <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
     </nav>
-    <div class="hero-image">
-        <div class="hero-text">
-            <h1 style="font-size:50px">Pet Food Search</h1>
-            <p>Finding food for your animal can be a hassle. We make this process easier by searching for you. Input a
-                list of ingredients your animal is allergic to and we will find quality food that is safe to eat.</p>
-            <button onclick="handleNavigation()">Search Now</button>
+
+    <!-- Top menu -->
+    <div class="w3-top">
+        <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+            <!-- <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div> -->
+            <div class="w3-center w3-padding-16">Pet Food Search</div>
         </div>
     </div>
 
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+        <div style="display: flex; align-items: center; flex-direction: column;">
+            <div class="heroText">
+                <p>Input a list of ingredients your animal is allergic to. Seperate each ingredient by a comma.</p>
+            </div>
+            <input id="queryInput" type="text" placeholder="chicken, grain"></input>
+            <button id="button" class="button" onclick="handleSearch()">Search</button>
+        </div>
+        <!-- First Photo Grid-->
+        <div id="foodList" class="w3-row-padding w3-padding-16 w3-center" id="food">
+
+        </div>
+
+        <!-- End page content -->
+    </div>
 
     <script>
         // Script to open and close sidebar
