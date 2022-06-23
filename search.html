@@ -68,9 +68,11 @@
             productImage.style.cssText = 'width:100%';
             productImage.src = food.image;
 
-            const header = document.createElement('h3');
+            const header = document.createElement('a');
             header.innerText = `${food.brand} - ${food.name}`;
-            header.href = food.producer_url;
+            header.style = 'font-size: 28px; font-weight: bold; text-decoration: none;';
+            header.href = food.product_url;
+            header.target = '_blank';
 
             const ingredients = document.createElement('p');
             ingredients.innerText = food.ingredients;
@@ -80,6 +82,18 @@
             card.appendChild(ingredients);
 
             return card;
+        }
+
+        function createResultCount(count) {
+            const resultContainer = document.createElement('div');
+            const result = document.createElement('p');
+            const noResults = 'Oh no, we couldn\'t find anything! Check your ingredients and try again.'
+            const foundResults = `Found ${count} yummy foods!`;
+            result.innerText = count !== 0 ? foundResults : noResults;
+            result.style = 'font-size: 18px; font-weight: bold;';
+            resultContainer.appendChild(result);
+
+            return resultContainer;
         }
 
         function getFood() {
@@ -103,7 +117,7 @@
             const query = document.getElementById("queryInput");
             const keywords = query.value ? query.value.split(',') : null;
             const foodList = document.getElementById("foodList");
-
+            let counter = 0;
             // Empty List
             foodList.innerHTML = '';            
 
@@ -112,11 +126,14 @@
                 console.log(food);
                 for (var item in food) {
                     if (!containsKeyword(keywords, food[item])) {
+                        counter++;
                         const foodCard = createFoodCard(food[item]);
                         console.log(foodCard);
                         foodList.appendChild(foodCard);
                     }
                 }
+
+                foodList.insertBefore(createResultCount(counter), foodList.firstChild);
             }
 
 

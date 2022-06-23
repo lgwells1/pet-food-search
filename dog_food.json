@@ -14,5 +14,37 @@ dogfood = `[
         "product_url": "https://zignature.com/product/zignature-turkey-formula-dog-food/",
         "image": "https://zignature.com/wp-content/uploads/Zig_Turkey_Original.png",
         "ingredients": "Turkey, Turkey Meal, Chickpeas, Peas, Sunflower Oil, Flaxseed, Natural Flavors, Salt, Vitamins (Vitamin A Acetate, Vitamin D3 Supplement, Vitamin E Supplement, Niacin, D-Calcium Pantothenate, Thiamine Mononitrate, Pyridoxine Hydrochloride, Riboflavin Supplement, Folic Acid, Biotin, Vitamin B12 Supplement), Potassium Chloride, Taurine, Minerals (Zinc Proteinate, Iron Proteinate, Copper Proteinate, Cobalt Proteinate, Manganese Proteinate, Calcium Iodate, Sodium Selenite), Mixed Tocopherols Preserved, Choline Chloride, L-Carnitine."
+    },
+    {
+        "brand": "Zignature",
+        "type": "dog",
+        "name": "Guinea Fowl Formula",
+        "product_url": "https://zignature.com/product/zignature-guinea-fowl-formula-dog-food/",
+        "image": "https://zignature.com/wp-content/uploads/Guinea-Fowl-Dog-Dry-1.png",
+        "ingredients": "Guinea Fowl, Guinea Fowl Meal, Peas, Chickpeas, Pea Flour, Sunflower Oil, Flaxseed, Natural Flavors, Calcium Carbonate, Salt, Choline Chloride, Taurine, Vitamins (Vitamin A Supplement, Vitamin D3 Supplement, Vitamin E Supplement, Niacin Supplement, D-Calcium Pantothenate, Thiamine Mononitrate, Pyridoxine Hydrochloride, Riboflavin Supplement, Folic Acid, Vitamin B12 Supplement), Dehydrated Alfalfa Meal, Tricalcium Phosphate, Minerals (Zinc Proteinate, Iron Proteinate, Copper Proteinate, Manganese Proteinate, Sodium Selenite, Calcium Iodate), Potassium Chloride, Mixed Tocopherols Preserved, L-Carnitine, Carrots."
+    },
+    {
+        "brand": "Zignature",
+        "type": "dog",
+        "name": "Pork Formula",
+        "product_url": "https://zignature.com/product/zignature-pork-formula-dog-food/",
+        "image": "https://zignature.com/wp-content/uploads/Pork-Dog-Dry-1.png",
+        "ingredients": "Pork, Pork Meal, Peas, Pea Flour, Chickpeas, Pork Fat, Natural Flavors, Flaxseed, Choline Chloride, Salt, Taurine, Vitamins (Vitamin A Acetate, Vitamin D3 Supplement, Vitamin E Supplement, Niacin Supplement, D‐Calcium Pantothenate, Thiamine Mononitrate, Pyridoxine Hydrochloride, Riboflavin Supplement, Folic Acid, Vitamin B12 Supplement), Minerals (Zinc Proteinate, Iron Proteinate, Copper Proteinate, Manganese Proteinate, Sodium Selenite, Calcium Iodate), Mixed Tocopherols Preserved, L-Carnitine."
+    },
+    {
+        "brand": "Zignature",
+        "type": "dog",
+        "name": "Goat Formula",
+        "product_url": "https://zignature.com/product/zignature-goat-formula-dog-food/",
+        "image": "https://zignature.com/wp-content/uploads/Goat-Dog-Dry-1-1.png",
+        "ingredients": "Goat, Goat Meal, Peas, Chickpeas, Pea Flour, Sunflower Oil, Flaxseed, Natural Flavors, Dehydrated Alfalfa Meal, Dicalcium Phosphate, Calcium Carbonate, Salt, Potassium Chloride, Choline Chloride, Taurine, Vitamins (Vitamin A Supplement, Vitamin D3 Supplement, Vitamin E Supplement, Niacin Supplement, D-Calcium Pantothenate, Thiamine Mononitrate, Pyridoxine Hydrochloride, Riboflavin Supplement, Folic Acid, Biotin, Vitamin B12 Supplement), Minerals (Zinc Proteinate, Iron Proteinate, Copper Proteinate, Manganese Proteinate, Selenium Yeast, Calcium Iodate), Mixed Tocopherols Preserved, L-Carnitine."
+    },
+    {
+        "brand": "Zignature",
+        "type": "dog",
+        "name": "Salmon Formula",
+        "product_url": "https://zignature.com/product/zignature-salmon-formula-dog-food/",
+        "image": "https://zignature.com/wp-content/uploads/Salmon-Dog-Dry-1.png",
+        "ingredients": "Trout, Salmon Meal, Chickpeas, Peas, Sunflower Oil, Dehydrated Alfalfa Meal, Salmon Oil, Flaxseed, Natural Flavors, Choline Chloride, Potassium Chloride, Tricalcium Phosphate, Salt, Vitamins (Vitamin A Acetate, Vitamin E Supplement, Niacin, D-Calcium Pantothenate, Thiamine Mononitrate, Pyridoxine Hydrochloride, Riboflavin Supplement, Folic Acid, Biotin, Vitamin B12 supplement), Calcium Carbonate, Taurine, Minerals (Zinc Proteinate, Iron Proteinate, Copper Proteinate, Cobalt Proteinate, Manganese Proteinate, Calcium Iodate, Sodium Selenite), Mixed Tocopherols Preserved, L-Carnitine."
     }
 ]`;
