@@ -1,0 +1,20 @@
+{
+    "dogfood": [
+        {
+            "brand": "Zignature",
+            "type": "dog",
+            "name": "Duck Formula",
+            "product_url": "https://zignature.com/product/zignature-duck-formula-dog-food/",
+            "image": "https://zignature.com/wp-content/uploads/Duck-Dog-Dry-1.png",
+            "ingredients": "Duck, Duck Meal, Chickpeas, Peas, Sunflower Oil, Flaxseed, Dehydrated Alfalfa Meal, Natural Flavors, Salt, Choline Chloride, Vitamins (Vitamin A Acetate, Vitamin D3 Supplement, Vitamin E Supplement, Niacin, D‐Calcium Pantothenate, Thiamine Mononitrate, Pyridoxine Hydro-chloride, Riboflavin Supplement, Folic Acid, Biotin, Vitamin B 12 Supplement), DHA, Taurine, Minerals (Zinc Proteinate, Iron Proteinate, Copper Proteinate, Cobalt Proteinate, Manganese Proteinate, Calcium Iodate, Sodium Selenite), Potassium Chloride, Calcium Carbonate, Mixed Tocopherols Preserved, L-Carnitine."
+        },
+        {
+            "brand": "Zignature",
+            "type": "dog",
+            "name": "Turkey Formula",
+            "product_url": "https://zignature.com/product/zignature-turkey-formula-dog-food/",
+            "image": "https://zignature.com/wp-content/uploads/Zig_Turkey_Original.png",
+            "ingredients": "Turkey, Turkey Meal, Chickpeas, Peas, Sunflower Oil, Flaxseed, Natural Flavors, Salt, Vitamins (Vitamin A Acetate, Vitamin D3 Supplement, Vitamin E Supplement, Niacin, D-Calcium Pantothenate, Thiamine Mononitrate, Pyridoxine Hydrochloride, Riboflavin Supplement, Folic Acid, Biotin, Vitamin B12 Supplement), Potassium Chloride, Taurine, Minerals (Zinc Proteinate, Iron Proteinate, Copper Proteinate, Cobalt Proteinate, Manganese Proteinate, Calcium Iodate, Sodium Selenite), Mixed Tocopherols Preserved, Choline Chloride, L-Carnitine."
+        }
+    ]
+}
