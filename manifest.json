@@ -6,7 +6,7 @@
     "display": "standalone",
     "scope": "/",
     "description": "Find quality pet food based on your pet's allergies.",
-    "start_url": "https://lgwells1.github.io/pet-food-search/",
+    "start_url": "https://lgwells1.github.io/pet-food-search/search.html",
     "icons": [
         {
             "src": "https://lgwells1.github.io/pet-food-search/media/pet_food_search.png",
