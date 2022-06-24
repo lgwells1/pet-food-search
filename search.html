@@ -15,7 +15,8 @@
         h3,
         h4,
         h5,
-        h6 {
+        h6,
+        p {
             font-family: "Karma", sans-serif
         }
 
@@ -29,6 +30,21 @@
             padding: 12px 20px;
             margin: 8px 0;
             box-sizing: border-box;
+        }
+
+        input[type=checkbox] {
+            padding: 12px 20px;
+            margin: 8px 8px;
+            box-sizing: border-box;
+        }
+
+        .filterCheckboxes {
+            margin: auto;
+        }
+
+        .filterInputs {
+            font-size: 18px;
+            font-weight: 800;
         }
 
         .button {
@@ -51,7 +67,7 @@
             display: flex;
             flex-direction: column;
             text-align: center;
-            width: 60%;
+            width: 75%;
             font-size: 18px;
         }
     </style>
@@ -113,12 +129,26 @@
             return false;
         }
 
+        function getFilters() {
+            const inputs = document.getElementsByClassName('filterCheckboxes');
+            const filters = [];
+            for (var index in inputs) {
+                if (inputs[index].checked) {
+                    filters.push(inputs[index].value);
+                }
+            }
+
+            return filters;
+        }
+
         function handleSearch(input) {
             const query = document.getElementById("queryInput");
             const keywords = query.value ? query.value.split(',').map(term => term.trim()) : null;
-            console.log(keywords);
             const foodList = document.getElementById("foodList");
+            const filters = getFilters();
+
             let counter = 0;
+
             // Empty List
             foodList.innerHTML = '';            
 
@@ -126,7 +156,7 @@
                 const food = getFood();
                 console.log(food);
                 for (var item in food) {
-                    if (!containsKeyword(keywords, food[item])) {
+                    if (!containsKeyword(keywords, food[item]) && filters.includes(food[item].type)) {
                         counter++;
                         const foodCard = createFoodCard(food[item]);
                         console.log(foodCard);
@@ -162,6 +192,11 @@
                 <p>Input a list of ingredients your animal is allergic to. Seperate each ingredient by a comma.</p>
             </div>
             <input id="queryInput" type="text" placeholder="chicken, grain"></input>
+            <div class="filterInputs">
+                <input class="filterCheckboxes" type="checkbox" value="dry_food" checked>Dry Food</input>
+                <input class="filterCheckboxes" type="checkbox" value="wet_food" checked>Wet Food</input>
+                <input class="filterCheckboxes" type="checkbox" value="treats" checked>Treats</input>
+            </div>
             <button id="button" class="button" onclick="handleSearch()">Search</button>
         </div>
         <!-- First Photo Grid-->

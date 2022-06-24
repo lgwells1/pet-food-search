@@ -1,7 +1,8 @@
 dogfood = `[
     {
         "brand": "Zignature",
-        "type": "dog",
+        "pet_type": "dog",
+        "type": "dry_food",
         "name": "Duck Formula",
         "product_url": "https://zignature.com/product/zignature-duck-formula-dog-food/",
         "image": "https://zignature.com/wp-content/uploads/Duck-Dog-Dry-1.png",
@@ -9,7 +10,8 @@ dogfood = `[
     },
     {
         "brand": "Zignature",
-        "type": "dog",
+        "pet_type": "dog",
+        "type": "dry_food",
         "name": "Turkey Formula",
         "product_url": "https://zignature.com/product/zignature-turkey-formula-dog-food/",
         "image": "https://zignature.com/wp-content/uploads/Zig_Turkey_Original.png",
@@ -17,7 +19,8 @@ dogfood = `[
     },
     {
         "brand": "Zignature",
-        "type": "dog",
+        "pet_type": "dog",
+        "type": "dry_food",
         "name": "Guinea Fowl Formula",
         "product_url": "https://zignature.com/product/zignature-guinea-fowl-formula-dog-food/",
         "image": "https://zignature.com/wp-content/uploads/Guinea-Fowl-Dog-Dry-1.png",
@@ -25,7 +28,8 @@ dogfood = `[
     },
     {
         "brand": "Zignature",
-        "type": "dog",
+        "pet_type": "dog",
+        "type": "dry_food",
         "name": "Pork Formula",
         "product_url": "https://zignature.com/product/zignature-pork-formula-dog-food/",
         "image": "https://zignature.com/wp-content/uploads/Pork-Dog-Dry-1.png",
@@ -33,7 +37,8 @@ dogfood = `[
     },
     {
         "brand": "Zignature",
-        "type": "dog",
+        "pet_type": "dog",
+        "type": "dry_food",
         "name": "Goat Formula",
         "product_url": "https://zignature.com/product/zignature-goat-formula-dog-food/",
         "image": "https://zignature.com/wp-content/uploads/Goat-Dog-Dry-1-1.png",
@@ -41,10 +46,29 @@ dogfood = `[
     },
     {
         "brand": "Zignature",
-        "type": "dog",
+        "pet_type": "dog",
+        "type": "dry_food",
         "name": "Salmon Formula",
         "product_url": "https://zignature.com/product/zignature-salmon-formula-dog-food/",
         "image": "https://zignature.com/wp-content/uploads/Salmon-Dog-Dry-1.png",
         "ingredients": "Trout, Salmon Meal, Chickpeas, Peas, Sunflower Oil, Dehydrated Alfalfa Meal, Salmon Oil, Flaxseed, Natural Flavors, Choline Chloride, Potassium Chloride, Tricalcium Phosphate, Salt, Vitamins (Vitamin A Acetate, Vitamin E Supplement, Niacin, D-Calcium Pantothenate, Thiamine Mononitrate, Pyridoxine Hydrochloride, Riboflavin Supplement, Folic Acid, Biotin, Vitamin B12 supplement), Calcium Carbonate, Taurine, Minerals (Zinc Proteinate, Iron Proteinate, Copper Proteinate, Cobalt Proteinate, Manganese Proteinate, Calcium Iodate, Sodium Selenite), Mixed Tocopherols Preserved, L-Carnitine."
+    },
+    {
+        "brand": "Zignature",
+        "pet_type": "dog",
+        "type": "treats",
+        "name": "Turkey Formula Ziggy Bars",
+        "product_url": "https://zignature.com/product/zignature-turkey-formula-biscuit-treats-for-dogs/",
+        "image": "https://zignature.com/wp-content/uploads/Turkey-Treats-12-OZ-1.png",
+        "ingredients": "Turkey, Green Lentils, Garbanzo Beans, Red Lentils, Pumpkin, Natural Flavor, Mixed Tocopherols."
+    },
+    {
+        "brand": "Zignature",
+        "pet_type": "dog",
+        "type": "wet_food",
+        "name": "Duck Formula Wet Dog Food",
+        "product_url": "https://zignature.com/product/zignature-duck-formula-wet-dog-food/",
+        "image": "https://zignature.com/wp-content/uploads/Duck-13-OZ-1.png",
+        "ingredients": "Duck, Duck Broth, Peas, Duck Meal, Chickpeas, Sun-Cured Alfalfa Meal, Agar-Agar, Salt, Choline Chloride, Potassium Chloride, Minerals (Zinc Proteinate, Iron Proteinate, Copper Proteinate, Manganese Proteinate, Sodium Selenite, Calcium Iodate), Vitamins (Vitamin E Supplement, Thiamine Mononitrate, Niacin Supplement, Calcium Pantothenate, Biotin, Vitamin A Supplement, Riboflavin Supplement, Vitamin B12 Supplement, Pyridoxine Hydrochloride, Vitamin D3 Supplement, Folic Acid), Taurine, L-Carnitine."
     }
 ]`;
