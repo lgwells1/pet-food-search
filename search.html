@@ -88,7 +88,7 @@
             const resultContainer = document.createElement('div');
             const result = document.createElement('p');
             const noResults = 'Oh no, we couldn\'t find anything! Check your ingredients and try again.'
-            const foundResults = `Found ${count} yummy foods!`;
+            const foundResults = count === 1 ? 'Found 1 food' : `Found ${count} yummy foods!`;
             result.innerText = count !== 0 ? foundResults : noResults;
             result.style = 'font-size: 18px; font-weight: bold;';
             resultContainer.appendChild(result);
@@ -115,7 +115,8 @@
 
         function handleSearch(input) {
             const query = document.getElementById("queryInput");
-            const keywords = query.value ? query.value.split(',') : null;
+            const keywords = query.value ? query.value.split(',').map(term => term.trim()) : null;
+            console.log(keywords);
             const foodList = document.getElementById("foodList");
             let counter = 0;
             // Empty List
