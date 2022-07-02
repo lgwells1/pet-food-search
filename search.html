@@ -59,12 +59,113 @@
             margin-right: auto;
             cursor: pointer;
         }
+
         .heroText {
             display: flex;
             flex-direction: column;
             text-align: center;
             width: 75%;
             font-size: 18px;
+        }
+
+        .productImage {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .foodCard {
+            margin-top: 20px;
+            max-height: fit-content;
+            text-align: center;
+
+        }
+
+        .foodIngredients {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 400px;
+        }
+
+        .cardContainer {
+            display: grid;
+            grid-template-rows: auto;
+            grid-column-gap: 1.6rem;
+            column-gap: 1.6rem;
+            grid-row-gap: 1.6rem;
+            row-gap: 1.6rem;
+            margin-left: .8rem;
+            margin-right: .8rem;
+            margin-bottom: .8rem;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .ingredientSlider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .ingredientSlider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #04AA6D;
+            cursor: pointer;
+        }
+
+        .ingredientSlider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #04AA6D;
+            cursor: pointer;
+        }
+
+        .sliderValue {
+            font-size: 25px;
+            text-align: center;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        .slidecontainer {
+            max-width: 500px;
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-bottom: 20px;
+        }
+
+        .pageHeader {
+            background-color: #4CAF50;
+            font-family: "Karma", sans-serif;
+            color: white;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .foodIngredients {
+                height: fit-content;
+            }
+
+            .cardContainer {
+                display: grid;
+                grid-template-rows: auto;
+                grid-column-gap: 1.6rem;
+                column-gap: 1.6rem;
+                grid-row-gap: 1.6rem;
+                row-gap: 1.6rem;
+                margin-left: .8rem;
+                margin-right: .8rem;
+                margin-bottom: .8rem;
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
     </style>
 </head>
@@ -73,11 +174,11 @@
     <script>
         function createFoodCard(food) {
             const card = document.createElement('div');
-            card.classList = 'w3-quarter';
-            card.style.cssText = 'margin-top: 20px';
+            card.classList = 'foodCard';
+            card.style.cssText = '';
 
             const productImage = document.createElement('img');
-            productImage.style.cssText = 'width:100%';
+            productImage.classList = 'productImage';
             productImage.src = food.image;
 
             const header = document.createElement('a');
@@ -87,6 +188,7 @@
             header.target = '_blank';
 
             const ingredients = document.createElement('p');
+            ingredients.classList = 'foodIngredients';
             ingredients.innerText = food.ingredients;
 
             card.appendChild(productImage);
@@ -98,11 +200,12 @@
 
         function createResultCount(count) {
             const resultContainer = document.createElement('div');
+            resultContainer.id = "resultContainer";
             const result = document.createElement('p');
             const noResults = 'Oh no, we couldn\'t find anything! Check your ingredients and try again.'
             const foundResults = count === 1 ? 'Found 1 food' : `Found ${count} yummy foods!`;
             result.innerText = count !== 0 ? foundResults : noResults;
-            result.style = 'font-size: 18px; font-weight: bold;';
+            result.style = 'font-size: 18px; font-weight: bold; text-align: center;';
             resultContainer.appendChild(result);
 
             return resultContainer;
@@ -113,16 +216,47 @@
             return data;
         }
 
-        function containsKeyword(keywords, food) {
-            for (var k in keywords) {
-                console.log(`Searching keyword: ${keywords[k]}`);
-                console.log(food.ingredients.toLowerCase().includes(keywords[k].toLowerCase()));
-                if (food.ingredients.toLowerCase().includes(keywords[k].toLowerCase())) {
-                    return true;
-                }
-            }
+        function containsKeyword(keywords, food, ingredientDepth) {
+            console.log(`ingredientDepth type: ${typeof ingredientDepth}`);
+            console.log(`ingredDepth: ${ingredientDepth}`);
 
-            return false;
+            if (ingredientDepth === 'all') {
+                console.log("SEARCHING ALL");
+                for (var k in keywords) {
+                    console.log(`Searching keyword: ${keywords[k]}`);
+                    console.log(food.ingredients.toLowerCase().includes(keywords[k].toLowerCase()))
+                    if (food.ingredients.toLowerCase().includes(keywords[k].toLowerCase())) {
+                        return true;
+                    }
+                }
+
+            } else {
+                const ingredientList = [];
+                let lastCommaIndex = 0;
+                for (var i = 0; i < food.ingredients.length; i++) {
+
+                    if (food.ingredients[i] === ',') {
+                        const word = food.ingredients.substring(lastCommaIndex, i).trim().toLowerCase();
+                        ingredientList.push(word);
+                        lastCommaIndex = i;
+                    }
+
+                    // Break out of loop if depth limit reached
+                    if (ingredientDepth == ingredientList.length) {
+                        console.log("MET INGREDIENT LIST LIMIT");
+                        break;
+                    }
+                }
+
+                for (var k in keywords) {
+                    const ingreds = ingredientList.join("");
+                    if (ingreds.includes(keywords[k].toLowerCase())) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
         }
 
         function getFilters() {
@@ -141,29 +275,46 @@
             const query = document.getElementById("queryInput");
             const keywords = query.value ? query.value.split(',').map(term => term.trim()) : null;
             const foodList = document.getElementById("foodList");
+            const foodListContainer = document.getElementById('foodListContainer');
+            const resultMessage = document.getElementById('resultContainer');
+            const ingredientSlider = document.getElementById('ingredientSearchRange');
             const filters = getFilters();
 
             let counter = 0;
 
-            // Empty List
-            foodList.innerHTML = '';            
+            // Remove result message
+            if (resultMessage) {
+                console.log("HERE");
+                resultMessage.remove();
+                // Empty List
+                foodList.innerHTML = '';
+            }
+
+
 
             if (keywords) {
                 const food = getFood();
                 console.log(food);
+                const ingredientDepth = ingredientSlider.value === ingredientSlider.max ? 'all' : ingredientSlider.value;
                 for (var item in food) {
-                    if (!containsKeyword(keywords, food[item]) && filters.includes(food[item].type)) {
+                    if (!containsKeyword(keywords, food[item], ingredientDepth) && filters.includes(food[item].type)) {
                         counter++;
                         const foodCard = createFoodCard(food[item]);
                         console.log(foodCard);
                         foodList.appendChild(foodCard);
                     }
                 }
-
-                foodList.insertBefore(createResultCount(counter), foodList.firstChild);
+                foodListContainer.append(foodList);
+                foodListContainer.insertBefore(createResultCount(counter), foodListContainer.firstChild);
             }
 
 
+        }
+
+        function handleSliderDrag(value) {
+            const sliderValue = document.getElementById('sliderValue');
+            sliderValue.innerHTML = value === '25' ? 'All' : value;
+            console.log(value);
         }
     </script>
     <!-- Sidebar (hidden by default) -->
@@ -174,10 +325,10 @@
     </nav>
 
     <!-- Top menu -->
-    <div class="w3-top">
+    <div class="w3-top pageHeader">
         <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
             <!-- <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div> -->
-            <div class="w3-center w3-padding-16">Pet Food Search</div>
+            <div class="w3-center w3-padding-16 pageHeader">Pet Food Search</div>
         </div>
     </div>
 
@@ -193,12 +344,22 @@
                 <input class="filterCheckboxes" type="checkbox" value="wet_food" checked>Wet Food</input>
                 <input class="filterCheckboxes" type="checkbox" value="treats" checked>Treats</input>
             </div>
+            <div class="slidecontainer">
+                <p>Use the slider to adjust how deep into the ingredients list the search needs to go. If you only want
+                    to search the first 10 items in the list of ingredients set the slider to 10. If you want to search
+                    the entire ingredient list, move the slider to the far right.</p>
+                <p id="sliderValue" class="sliderValue">10</p>
+                <input type="range" min="1" max="25" value="10" class="ingredientSlider" id="ingredientSearchRange"
+                    oninput="handleSliderDrag(this.value)">
+            </div>
             <button id="button" class="button" onclick="handleSearch()">Search</button>
         </div>
         <!-- First Photo Grid-->
-        <div id="foodList" class="w3-row-padding w3-padding-16 w3-center" id="food">
-
+        <div id="foodListContainer" class="foodListContainer">
+            <div id="foodList" class="cardContainer" id="food">
+            </div>
         </div>
+
 
         <!-- End page content -->
     </div>
